@@ -207,9 +207,24 @@
     <Compile Include="Migrations\201605280549328_intitalModel.Designer.cs">
       <DependentUpon>201605280549328_intitalModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605281508356_addedgigtable.cs" />
+    <Compile Include="Migrations\201605281508356_addedgigtable.Designer.cs">
+      <DependentUpon>201605281508356_addedgigtable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605281521171_Add-migration gigtable.cs" />
+    <Compile Include="Migrations\201605281521171_Add-migration gigtable.Designer.cs">
+      <DependentUpon>201605281521171_Add-migration gigtable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605281527157_overriddingdefault.cs" />
+    <Compile Include="Migrations\201605281527157_overriddingdefault.Designer.cs">
+      <DependentUpon>201605281527157_overriddingdefault.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\Gig.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -289,6 +304,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605280549328_intitalModel.resx">
       <DependentUpon>201605280549328_intitalModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605281508356_addedgigtable.resx">
+      <DependentUpon>201605281508356_addedgigtable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605281521171_Add-migration gigtable.resx">
+      <DependentUpon>201605281521171_Add-migration gigtable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605281527157_overriddingdefault.resx">
+      <DependentUpon>201605281527157_overriddingdefault.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
