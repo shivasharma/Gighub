@@ -4,9 +4,8 @@
 }
 
 <h2>Add a Gig</h2>
-
-<form>
-
+@using (Html.BeginForm("create", "Gigs"))
+{
     <div class="form-group">
         @Html.LabelFor(m => m.Venue)
         @Html.TextBoxFor(m => m.Venue, new { @class = "form-control" })
@@ -24,8 +23,10 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Genre
         )
-        @Html.DropDownListFor(m => m.Genre, new SelectList(Model.Genres,"Id","Name"),"",new{@class="form-control"})
+        @Html.DropDownListFor(m => m.Genre, new SelectList(Model.Genres, "Id", "Name"), "", new { @class = "form-control" })
     </div>
-    <button type="Submit" value="Save" class="btn btn-default"></button>
+    <button type="Submit" value="Save" class="btn btn-default">Save</button>
 
-</form>
+}
+
+
