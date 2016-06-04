@@ -5,9 +5,20 @@
 
 
 
-<ul>
+<ul class="gigs">
     @foreach (var gigs in Model)
     {
-        <li>@gigs.DateTime-@gigs.Artist.Name</li>
+        <li>
+            <div class="date">
+                <div class="month">@gigs.DateTime.ToString("MMM")</div>
+                <div class="day">@gigs.DateTime.ToString("d ")</div>
+            </div>
+
+
+            <div class="details">
+                <span class="artist">@gigs.Artist.Name</span>
+                <span class="genre">@gigs.Genre.Name</span>
+            </div>
+        </li>
     }
 </ul>
