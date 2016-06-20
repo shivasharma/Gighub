@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GigHub.Models.Gig>
+﻿@model GigHub.ViewModel.GigViewModel
 @{
     ViewBag.Title = "Home Page";
 }
@@ -6,7 +6,7 @@
 
 
 <ul class="gigs">
-    @foreach (var gigs in Model)
+    @foreach (var gigs in Model.UpcomingGigs)
     {
         <li>
             <div class="date">
@@ -16,9 +16,18 @@
 
 
             <div class="details">
-                <span class="artist">@gigs.Artist.Name</span><br />
+                <span class="artist">@gigs.Artist.Name</span>
+                @if (Model.ShowActions)
+                {
+                    <button class="btn btn-link btn-sm js-toggle-follow" data-user-id="@gigs.ArtistId">Follow</button><br />
+
+                }
+
                 <span class="genre">@gigs.Genre.Name</span>
-                <button data-gig-id="@gigs.Id" class="btn btn-default btn-sm pull-right js-toggle-attendance">Going ?</button>
+                @if (Model.ShowActions)
+                {
+                    <button data-gig-id="@gigs.Id" class="btn btn-default btn-sm pull-right js-toggle-attendance">Going ?</button>
+                }
             </div>
         </li>
     }
@@ -45,6 +54,16 @@
                             });
                     });
 
+                $(".js-toggle-follow").click(function (e) {
+                    var button = $(e.target);
+                    $.post("/api/followings", { followeeId: button.attr("data-user-id") })
+                        .done(function () {
+                            button.text("Following");
+                        })
+                        .fail(function () {
+                            alert("Something failed");
+                        });
+                });
             });
     </script>
 }
