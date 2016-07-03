@@ -6,24 +6,31 @@
     {
     @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        
-        <li class="dropdown">
-            <div href="#" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                @User.Identity.GetUserName()
-                <span class="caret"></span>
-            </div>
-            <ul class="dropdown-menu" >
-                <li><a href="@Url.Action("Mine","Gigs")">My Upcoming Gigs</a></li>
-                <li><a href="@Url.Action("Attending","Gigs")">Gigs I'm going</a></li>
-                @*<li><a href="@Url.Action("Index","Followees")">Artist I'm Following</a></li>*@
-                <li role="separator" class="divider"></li>
-                <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-            </ul>
-        </li>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="notifications">
+                <a href="#">
+                    <i class="glyphicon glyphicon-globe"></i>
+                    <span class="badge js-notification-count hide"></span>
+                </a>
+            </li>          
+            <li>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new {title = "Manage"})
+            </li>
+
+            <li class="dropdown">
+                <div href="#" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    @User.Identity.GetUserName()
+                    <span class="caret"></span>
+                </div>
+                <ul class="dropdown-menu">
+
+                    <li><a href="@Url.Action("Mine", "Gigs")">My Upcoming Gigs</a></li>
+                    <li><a href="@Url.Action("Attending", "Gigs")">Gigs I'm going</a></li>
+                    @*<li><a href="@Url.Action("Index","Followees")">Artist I'm Following</a></li>*@
+                    <li role="separator" class="divider"></li>
+                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                </ul>
+            </li>
         </ul>   
         
    
